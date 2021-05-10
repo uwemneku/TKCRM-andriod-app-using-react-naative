@@ -8,8 +8,7 @@ import { NavigationContainer } from '@react-navigation/native'
 export default function App() {
   return (
     <NavigationContainer>
-      
-    <PaperProvider>
+      <PaperProvider >
       <Test />
     </PaperProvider>
     </NavigationContainer>
