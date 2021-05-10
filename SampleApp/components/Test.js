@@ -1,94 +1,117 @@
 /* eslint-disable prettier/prettier */
-import React from 'react'
+import React, { useState } from 'react'
 import { View, Text, useWindowDimensions, StatusBar } from 'react-native'
-import { IconButton, Searchbar } from 'react-native-paper'
-import { Icon } from 'react-native-paper/lib/typescript/components/Avatar/Avatar'
+import { IconButton } from 'react-native-paper'
+import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs'
+import MaterialIcons  from 'react-native-vector-icons/MaterialIcons'
+import { useFocusEffect } from '@react-navigation/core'
 
 export default function Test() {
-
+    const {height} = useWindowDimensions()
+    const [headerHeight, setheaderHeight] = useState(50)
 
     return (
-        <View style={{backgroundColor:'whitesmoke'}}>
-            <StatusBar backgroundColor='whitesmoke' />
-            <Header />
-            <Text
-                style={{
-                    fontSize:40,
-                    fontWeight:'bold',
-                    padding:15
-
-                }}
-            >
-                W
-                elcome, Jack
-
-            </Text>
-            <Searchbar placeholder='Search'
-                style={{
-                    marginLeft:15,
-                    marginRight:15,
-                    borderRadius:30
-                }}
-            />
-            <Item />
+        <View style={{height:height}}>
+            <StatusBar backgroundColor='white' />
+            <Header height={headerHeight} />
+            <Screen />
         </View>
     )
 }
 
 
-function Header (){
-    const {width, height} = useWindowDimensions()
-    return(
-        <View 
-            style={{
-                width:width,
-                height:80,
-                flexDirection:'row',
-                justifyContent:'space-between',
-                alignItems:'center',
-                paddingRight:10,
-                paddingLeft:10
-            }}
-        >
-                <IconButton style={{backgroundColor:'white',  borderRadius:10}} size={30} icon='menu' />
-                <IconButton style={{backgroundColor:'white', borderRadius:10}}  size={30} icon='more' />
 
-        </View>
-    )
-}
-function Item(){
+function Header({height}){
+    const {width} = useWindowDimensions()
     return(
         <View
             style={{
-                backgroundColor:'white',
-                width:250,
-                height:350,
-                marginLeft:20,
-                borderRadius:20,
-                justifyContent:'center',
-                alignItems:'center'
+                flexDirection:'row',
+                justifyContent:'space-between',
+                alignItems:'center',
+                width:width,
+                height:height,
             }}
         >
-            <View
+            <Text
                 style={{
-                    backgroundColor:'blue',
-                    width:'90%',
-                    height:'60%',
-                    borderRadius:20
+                    color:'blue',
+                    fontWeight:'bold',
+                    fontSize:30,
+                    marginLeft:15
                 }}
             >
+                Facebook
+            </Text>
 
+            <View
+                style={{
+                    flexDirection:'row'
+                }}
+            >
+                <IconButton style={{backgroundColor:'whitesmoke'}} icon="magnify" color="darkgrey" />
+                <IconButton style={{backgroundColor:'whitesmoke'}} icon="chat" color='darkgrey' />
             </View>
-            
-            <Text style={{textAlign:'center', fontSize:20, fontWeight:'bold', paddingTop:10 }}>
-                Adriatica Ad27744RRe
-            </Text>
-            <Text style={{textAlign:'center', fontSize:20, color:'grey'}}>
-                Swiss Watches
-            </Text>
-            <Text style={{textAlign:'center', fontSize:20, fontWeight:'bold', color:'skyblue', paddingTop:10}}>
-                $ 656.77
-            </Text>
         </View>
+    )
+}
+
+const TopBar = createMaterialTopTabNavigator()
+
+function Screen(){
+    return(
+        <TopBar.Navigator tabBarOptions={{
+            showLabel:false,
+            showIcon:true,
+            iconStyle:{
+                justifyContent:'center',
+                alignContent:'center',
+                width:'100%',
+                height:'100%'
+            },
+
+        }} >
+            <TopBar.Screen  name="Home" component={Tt} options={{
+                tabBarIcon:({focused})=>(<MaterialIcons name="home"  size={30}  color={focused?'blue':'grey'} />),
+            }} />
+            <TopBar.Screen name="Videos" component={Dummy} options={{
+                tabBarIcon:({focused})=>(<MaterialIcons name='tv' size={30} color={focused?'blue':'grey'}  />)
+            }} />
+            <TopBar.Screen name="MarketPlace" component={Dummy} options={{
+                tabBarIcon:({focused})=>(<MaterialIcons name='store' size={30} color={focused?'blue':'grey'} />)
+            }} />
+            <TopBar.Screen name="Pages" component={Dummy} options={{
+                tabBarIcon:({focused})=>(<MaterialIcons name='flag' size={30} color={focused?'blue':'grey'} />)
+            }} />
+            <TopBar.Screen name="Notifications" component={Dummy} options={{
+                tabBarIcon:({focused})=>(<MaterialIcons name='notifications' size={30} color={focused?'blue':'grey'} />)
+            }} />
+            <TopBar.Screen name="Menu" component={Dummy} options={{
+                tabBarIcon:({focused})=>(<MaterialIcons name='menu' size={30} color={focused?'blue':'grey'} />)
+            }} />
+        </TopBar.Navigator>
+    )
+}
+
+const Dummy = () => (
+    <View>
+        <MaterialIcons name="bell" color='red' size={30}  />
+
+    </View>
+)
+
+function Tt(){
+    const [num, setNum] = useState(0)
+     useFocusEffect(
+         React.useCallback(() => {
+             console.log('y')
+             setNum(num+1)
+             
+         }, [])
+     )
+    return(
+        <>
+        <Text>{num}</Text>
+        </>
     )
 }
