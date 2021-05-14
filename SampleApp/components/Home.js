@@ -1,14 +1,31 @@
 /* eslint-disable prettier/prettier */
-import React from 'react'
-import { View, Text, useWindowDimensions, Pressable } from 'react-native'
+import { useFocusEffect, } from '@react-navigation/core'
+import React, { useContext } from 'react'
+import { View, Text, useWindowDimensions, Pressable, _ScrollView, ScrollView } from 'react-native'
 import { Avatar, Divider, } from 'react-native-paper'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
+import {ShowHeaderContext} from './Context'
+import FeedPost from './FeedPost'
+import Story from './Story'
 
 export default function Home() {
+
+    const [showHeader, setshowHeader] = useContext(ShowHeaderContext)
+
+    useFocusEffect(
+     React.useCallback(() => {
+        setshowHeader(true)
+        return ()=> setshowHeader(false)
+     }, [])   
+    )
+
     return (
         <View>
             <Header />
-            <Divider style={{height:10}} />
+            <Divider style={{height:5}} />
+            <Stories />
+            <Divider style={{height:5}} />
+            <FeedPost />
         </View>
     )
 }
@@ -50,6 +67,34 @@ function Header(){
                 <Text style={{color:'grey'}}>Photos</Text>
             </View>
 
+
         </View>
     )
 }
+
+function Stories(){
+    return (
+        <ScrollView horizontal={true} 
+            style={{
+                backgroundColor:'red',
+                width:'100%',
+                height:250,
+                paddingTop:15,
+                paddingBottom:15,
+            }}
+
+            contentContainerStyle={{
+                alignItems:'center'
+            }}
+        >
+
+            <Story />
+            <Story />
+            <Story />
+            <Story />
+            <Story />
+
+        </ScrollView>
+    )
+}
+

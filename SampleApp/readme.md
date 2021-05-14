@@ -1,0 +1,1 @@
+In other to get a better outcome for bootom sheet, use the prop "LabelPosition" on the vavigator

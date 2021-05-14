@@ -1,16 +1,26 @@
 /* eslint-disable prettier/prettier */
 import React from 'react'
-import { View, Text } from 'react-native'
-import Test from './components/Test'
-import {Provider as PaperProvider} from 'react-native-paper'
-import { NavigationContainer } from '@react-navigation/native'
+import { View, Text, Image, useWindowDimensions, SafeAreaView } from 'react-native'
+import Places from './Screens/Places'
+import {NavigationContainer} from '@react-navigation/native'
+import Home from './Screens/Home'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+
+const BottomTab = createBottomTabNavigator()
+
 
 export default function App() {
+  const {width, height} = useWindowDimensions()
   return (
-    <NavigationContainer>
-      <PaperProvider >
-      <Test />
-    </PaperProvider>
+    
+    // <SafeAreaView style={{
+    //   width:width,
+    //   height:height,
+    //   backgroundColor:'white',
+    // }}>
+      <NavigationContainer>
+      <Home/>
     </NavigationContainer>
+    // </SafeAreaView>
   )
 }
