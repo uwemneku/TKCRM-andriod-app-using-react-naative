@@ -1,10 +1,12 @@
 /* eslint-disable prettier/prettier */
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, TouchableOpacity } from 'react-native'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
+import {useNavigation} from '@react-navigation/native'
 
 
 export default function ScreenHeader({text, iconName, showIcon = false}) {
+    const navigation = useNavigation()
     return (
         <View style={{
             height:56,
@@ -20,7 +22,13 @@ export default function ScreenHeader({text, iconName, showIcon = false}) {
                 {text}
             </Text>
 
-            {showIcon === true ? <MaterialIcons size={24} name={iconName} style={{paddingRight:16}} /> : null}
+            {showIcon === true ?
+            <TouchableOpacity
+                onPress = {()=> navigation.navigate("Contacts")}
+            >
+                <MaterialIcons size={24} name={iconName} style={{paddingRight:16}} />
+            </TouchableOpacity>
+             : null}
 
         </View>
     )

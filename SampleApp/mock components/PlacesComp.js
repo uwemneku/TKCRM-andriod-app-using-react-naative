@@ -35,3 +35,5 @@ export default function PlacesComp({iconName, text}){
         </TouchableOpacity>
     )
 }
+
+// const styles = Stylesh

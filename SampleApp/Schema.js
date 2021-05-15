@@ -1,12 +1,20 @@
 /* eslint-disable prettier/prettier */
+import faker, { fake } from 'faker'
 const contacts = [
-    {
-        id:'',
-        Name: '',
-        role:'',
-        lastMessage: function getLast
-    }
+    // {
+    //     id:'',
+    //     Name: '',
+    //     role:'',
+    // }
 ]
+
+let count = 0
+do {
+    contacts.push({id:faker.random()*10, Name:`${faker.name.firstName()} ${faker.name.lastName()}`, role:faker.name.jobTitle()})
+}
+while(count < 50)
+
+
 
 const messages = [
     {
