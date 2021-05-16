@@ -1,6 +1,5 @@
 /* eslint-disable prettier/prettier */
 import React from 'react'
-import { useWindowDimensions } from 'react-native'
 import {NavigationContainer} from '@react-navigation/native'
 import Home from './Screens/Home'
 import { createStackNavigator } from '@react-navigation/stack'

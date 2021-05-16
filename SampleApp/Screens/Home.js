@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import React from 'react'
+import React, {  } from 'react'
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 import Places from './Places'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
@@ -12,9 +12,15 @@ import Chats from './Chats'
 
 
 const BottomTab = createBottomTabNavigator()
-
+    
 export default function Home() {
+   
+
+
+    
     const {height} = useWindowDimensions()
+
+
 
     return (
         
@@ -52,7 +58,7 @@ export default function Home() {
                  },
                  labelPosition:'below-icon'
              }}
-             initialRouteName="Places">
+             initialRouteName="Tracker">
 
             <BottomTab.Screen name="Orders"  component={MyOrder}
                 options = {{
