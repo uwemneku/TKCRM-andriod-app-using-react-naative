@@ -58,7 +58,7 @@ export default function Home() {
                  },
                  labelPosition:'below-icon'
              }}
-             initialRouteName="Tracker">
+             initialRouteName="Orders">
 
             <BottomTab.Screen name="Orders"  component={MyOrder}
                 options = {{

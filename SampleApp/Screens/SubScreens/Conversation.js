@@ -19,12 +19,12 @@ export default function Conversation() {
     const navigation = useNavigation();
     const {name, id} = useRoute().params
 
-    //Set the name of the screen
-    // useLayoutEffect(() => {
-    //     navigation.setOptions({
-    //         title: name
-    //     })
-    // }, [name, navigation])
+    // Set the name of the screen
+    useLayoutEffect(() => {
+        navigation.setOptions({
+            title: name
+        })
+    }, [name, navigation])
 
     // useEffect(() => {
     //  setLoading(false)

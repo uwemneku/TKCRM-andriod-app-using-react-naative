@@ -1,8 +1,9 @@
 /* eslint-disable prettier/prettier */
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, useWindowDimensions } from 'react-native'
 import ScreenHeader from '../mock components/ScreenHeader'
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs'
+import OrderComponents from '../mock components/OrderComponents'
 
 const TopBar = createMaterialTopTabNavigator()
 
@@ -38,8 +39,17 @@ export default function MyOrder() {
 }
 
 function CurrentScreen(){
+    const  {width} = useWindowDimensions()
     return(
-       <View></View> 
+       <View
+        style={{
+            width:width,
+            backgroundColor:'white',
+            flex:1
+        }}
+       >
+           <OrderComponents />
+       </View> 
     )
 }
 
