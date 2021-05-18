@@ -1,8 +1,9 @@
 /* eslint-disable prettier/prettier */
-import React, { useCallback, useContext, useEffect, useState } from 'react'
+import React, { useCallback, useContext, useEffect, useLayoutEffect, useState } from 'react'
 import { View, Text, Image, StyleSheet, useWindowDimensions, FlatList, ActivityIndicator, TouchableOpacity } from 'react-native'
 import {ContactsContext, MessagesContext} from '../../Context/ContactProvider'
 import {useNavigation} from '@react-navigation/native'
+import SearchBar from '../../mock components/SearchBar'
 
 
 
@@ -10,7 +11,7 @@ function  ContactComponent ({list=false, name, role, pic, id, lastText}){
         const navigation = useNavigation()
 
     return(
-        <TouchableOpacity
+        <TouchableOpacity  
             onPress = {() => navigation.navigate('Conversation', {
                 name:name,
                 id:id
@@ -86,13 +87,24 @@ return(
 
 export default function Contacts() {
     const contacts = useContext(ContactsContext)
+    const [filterValue, setFilterValue] = useState('')
     const [show, setShow] = useState(false)
     const {height, width} = useWindowDimensions()
+    const navigaion = useNavigation()
+    const [dataRender, setDataRender] = useState(contacts)
 
     useEffect(() => {
         setShow(true)
         console.log('mounted');
     }, [])
+
+    // useLayoutEffect(() => {
+    //     navigaion.setOptions({
+    //         headerRight:()=>(
+    //             <SearchBar setFilterTerm={setFilterValue} />
+    //         )
+    //     })
+    // }, [navigaion])
 
     return (
         <View 
@@ -100,13 +112,12 @@ export default function Contacts() {
             height:height,
             width:width
         }}
-        >
-           
+        >   
+           <SearchBar data={contacts} setFilterTerm={setDataRender} />
             {
                 show?
                 <FlatList 
-                data={contacts}
-                initialNumToRender={50}
+                data={dataRender}
                 renderItem={({item}) => <PureContactComponent id={item.id}  role={item.role} name={item.name} pic={item.pic} />}
                 keyExtractor={item => `${item.id}`}
                 key={9876545678}

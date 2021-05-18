@@ -20,15 +20,15 @@ export default function Conversation() {
     const {name, id} = useRoute().params
 
     //Set the name of the screen
-    useLayoutEffect(() => {
-        navigation.setOptions({
-            title: name
-        })
-    }, [name, navigation])
+    // useLayoutEffect(() => {
+    //     navigation.setOptions({
+    //         title: name
+    //     })
+    // }, [name, navigation])
 
-    useEffect(() => {
-     setLoading(false)
-    }, [])
+    // useEffect(() => {
+    //  setLoading(false)
+    // }, [])
 
     //Add keybord listener to scroll messages to the bottom so keyboard does not cover messages
     useEffect(() => {
@@ -75,6 +75,8 @@ export default function Conversation() {
                             renderItem= {({item}) => <PureMessage key={Math.random()} sent={item.sent} text={item.text}  />}
                             keyExtractor = {() => Math.random()}
                             onContentSizeChange = {() => scroll()}
+                            showsHorizontalScrollIndicator={false}
+                            showsVerticalScrollIndicator={false}
                         />
                        :
                        <View style={{height:"100%", justifyContent:'center', alignItems:'center' }}>
@@ -97,22 +99,20 @@ function CustomInput({position, messages, setmessages, action, id}){
         setValue(text)
     }
     function handleUpdate(){
-        if(action){
+        if(action ){
             setmessages(prev => {
                 const newState = prev
-                newState.push({id:id, date:Date.now(), conversation: [{sent:true, text:value}] })
+                newState.push({id:id, date:Date.now(), conversation: [{sent:false, text:value}] })
                 setValue('')
-                console.log('New Text');
                 return [...newState]
             })
         }
         else{
             setmessages(prev => {
                 const newState = prev
-                newState[position].conversation.push({sent:true, text:value})
+                newState[position].conversation.push({sent:false, text:value})
                 newState[position].date = Date.now()
                 setValue('')
-                console.log('Old Text');
                 return [...newState]
             })
         }
@@ -128,7 +128,7 @@ function CustomInput({position, messages, setmessages, action, id}){
                     multiline={true} 
                     style={Styles.textInput}
                 />
-                <TouchableOpacity onPress={handleUpdate}>
+                <TouchableOpacity onPress={()=>{if(value.replace(/\s/g, '').length  !== 0)handleUpdate()}}>
                     <MaterialIcons name="send" size={24}  style={Styles.icon} />
                 </TouchableOpacity>
                 
@@ -150,7 +150,7 @@ function Message({sent, text}){
             <Text 
                 style={{ 
                     ...Styles.message,
-                    backgroundColor:sent?'#FFE376':'#DADDDF'
+                    backgroundColor:sent?'#DADDDF':'#FFE376'
                     
                     }}>
                      {text}
