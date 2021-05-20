@@ -13,7 +13,7 @@ export default function Tracker() {
             style={{width:width, flex:1}}
         >
             <ScreenHeader text='Tracker' />
-            <TrackerButton />
+            <TrackerButton text="Tracker is stopped" />
             <TableHeader />
             <View style={{width:'100%', height:1.5, backgroundColor:'whitesmoke'}} />   
             <View style={{flex:1, paddingBottom:60}}>

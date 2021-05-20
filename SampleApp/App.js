@@ -8,6 +8,7 @@ import Contacts from './Screens/SubScreens/Contacts'
 import ContactProvider from './Context/ContactProvider'
 import Conversation from './Screens/SubScreens/Conversation'
 import TireService from './Screens/SubScreens/TireService'
+import Settings from './Screens/SubScreens/Settings'
 
 
 const Main = createStackNavigator()
@@ -30,6 +31,7 @@ export default function App() {
               <Main.Screen name="Contacts" component={Contacts}/>
               <Main.Screen name="Conversation" component={Conversation}/>
               <Main.Screen name="TireService" component={TireService}/>
+              <Main.Screen name="Settings" component={Settings}/>
           </Main.Navigator>
       </NavigationContainer>
     </ContactProvider>

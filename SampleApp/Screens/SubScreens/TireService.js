@@ -185,15 +185,11 @@ export default function TireService() {
     const [loading, setLoading] = useState(true)
     const navigation = useNavigation()
 
-    // useLayoutEffect(() => {
-    //     navigation.setOptions({
-    //         title:name,
-    //         headerRight:()=>(
-                
-    //             <SearchBar setFilterTerm={setFilterTerm} />
-    //         )
-    //     })
-    // }, [filterTerm, name, navigation])
+    useLayoutEffect(() => {
+        navigation.setOptions({
+            title:name,
+        })
+    }, [name, navigation])
 
     useEffect(() => {
        setLoading(false)

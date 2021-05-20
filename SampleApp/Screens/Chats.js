@@ -44,7 +44,7 @@ export default function Chats() {
             <View
                 style={{flex:0}}
             >
-                <ScreenHeader text='Chat' showIcon={true} iconName="people" />
+                <ScreenHeader text='Chat' showIcon={true} iconName="people" navigateTo='Contacts' />
             </View>
             {/* Contact List */}
             <View

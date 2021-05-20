@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React, { useEffect, useRef, useState } from 'react'
-import { View, Text, Keyboard, TextInput, TouchableOpacity } from 'react-native'
+import { View, Text, Keyboard, TextInput, TouchableOpacity, useWindowDimensions } from 'react-native'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
 
@@ -8,6 +8,7 @@ export default function SearchBar({setFilterTerm, data}){
     const [clearFilter, setClearFilter] = useState(true)
     const [showSearch, setShowSearch] = useState(false)
     const input = useRef(null)
+    const {width} = useWindowDimensions()
     useEffect(() => {
         const show =()=>setShowSearch(false)
             Keyboard.addListener('keyboardDidHide', show )
@@ -16,7 +17,7 @@ export default function SearchBar({setFilterTerm, data}){
         }
     }, [])
     return(
-        <View style={{padding:16, alignItems:'flex-end'}}>
+        <View style={{padding:16, backgroundColor:'white', alignItems:'flex-end'}}>
             {
                 showSearch?
                 <TextInput 
@@ -24,13 +25,14 @@ export default function SearchBar({setFilterTerm, data}){
                 multiline={false}
                 style={{
                     borderWidth:1,
-                    width:'90%',
+                    width:width * 0.8,
                     height:30,
                     fontSize:16,
                     padding:0,
                     paddingLeft:10,
                     paddingRight:10,
                     borderRadius:5,
+                    color:'black'
                     
                 }}
                 onChangeText={(e)=>{setFilterTerm(data.filter(item => (item.name).includes(e)))}}

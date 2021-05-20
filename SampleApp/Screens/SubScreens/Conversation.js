@@ -194,6 +194,7 @@ const Styles = StyleSheet.create({
         padding:2,
         minHeight:48,
         maxHeight:100,
+        color:'black'
     },
     messageContainer:{
         width:'100%',

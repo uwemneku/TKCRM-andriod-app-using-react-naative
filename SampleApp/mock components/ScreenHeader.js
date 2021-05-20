@@ -5,7 +5,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import {useNavigation} from '@react-navigation/native'
 
 
-export default function ScreenHeader({text, iconName, showIcon = false}) {
+export default function ScreenHeader({text, iconName, showIcon = false, navigateTo}) {
     const navigation = useNavigation()
     return (
         <View style={{
@@ -24,7 +24,7 @@ export default function ScreenHeader({text, iconName, showIcon = false}) {
 
             {showIcon === true ?
             <TouchableOpacity
-                onPress = {()=> navigation.navigate("Contacts")}
+                onPress = {()=> navigation.navigate(navigateTo)}
             >
                 <MaterialIcons size={24} name={iconName} style={{paddingRight:16}} />
             </TouchableOpacity>

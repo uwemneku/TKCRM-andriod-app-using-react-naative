@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { View, Text, Pressable } from 'react-native'
 import RadioButton from './RadioButton'
 
-export default function TrackerButton() {
+export default function TrackerButton({text}) {
     const [clicked, setclicked] = useState(false)
     return (
         <Pressable
@@ -27,7 +27,7 @@ export default function TrackerButton() {
                     lineHeight:20
                 }}
             >
-                Tracker is stopped
+                {text}
             </Text>
             <RadioButton clicked={clicked}  />
         </Pressable>

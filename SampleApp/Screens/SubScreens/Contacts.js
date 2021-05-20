@@ -90,7 +90,7 @@ export default function Contacts() {
     const [filterValue, setFilterValue] = useState('')
     const [show, setShow] = useState(false)
     const {height, width} = useWindowDimensions()
-    const navigaion = useNavigation()
+    const navigation = useNavigation()
     const [dataRender, setDataRender] = useState(contacts)
 
     useEffect(() => {
@@ -98,13 +98,13 @@ export default function Contacts() {
         console.log('mounted');
     }, [])
 
-    // useLayoutEffect(() => {
-    //     navigaion.setOptions({
-    //         headerRight:()=>(
-    //             <SearchBar setFilterTerm={setFilterValue} />
-    //         )
-    //     })
-    // }, [navigaion])
+    useLayoutEffect(() => {
+        navigation.setOptions({
+            headerRight:()=>(
+                <SearchBar data={contacts} setFilterTerm={setDataRender} />
+            )
+        })
+    })
 
     return (
         <View 
@@ -113,7 +113,6 @@ export default function Contacts() {
             width:width
         }}
         >   
-           <SearchBar data={contacts} setFilterTerm={setDataRender} />
             {
                 show?
                 <FlatList 
