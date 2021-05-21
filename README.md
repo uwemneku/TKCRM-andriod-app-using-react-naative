@@ -26,8 +26,8 @@ Clone this repo
   yarn install
   npx react-native run adriod
 ```
-    
-
+## Demo
+[Click here to download apk file](https://github.com/uwemneku/TKCRM-andriod-app-using-react-naative/blob/main/SampleApp/app-release.apk)
 
   
 ## Acknowledgements
