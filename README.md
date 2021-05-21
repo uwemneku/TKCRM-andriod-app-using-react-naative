@@ -9,9 +9,12 @@
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
 
   
-## Screenshots
+## Screenshots and Demo
 
-![App Screenshot](https://github.com/uwemneku/TKCRM-andriod-app-using-react-naative/raw/main/SampleApp/SharedScreenshot.jpg)
+![App Screenshot](https://github.com/uwemneku/TKCRM-andriod-app-using-react-naative/blob/main/SampleApp/screenshot/GIF-210521_004048.gif)
+1             |  2 | 3
+:-------------------------:|:-------------------------: |:-------------------------:
+![](https://github.com/uwemneku/TKCRM-andriod-app-using-react-naative/blob/main/SampleApp/screenshot/Screenshot_2021-05-21-00-25-45-02_2014efbfc97e19b5b5f8dee6858a9bdc.jpg)  |  ![](https://github.com/uwemneku/TKCRM-andriod-app-using-react-naative/blob/main/SampleApp/screenshot/Screenshot_2021-05-21-00-26-11-14_2014efbfc97e19b5b5f8dee6858a9bdc.jpg) | ![](https://github.com/uwemneku/TKCRM-andriod-app-using-react-naative/blob/main/SampleApp/screenshot/Screenshot_2021-05-21-00-26-25-39_2014efbfc97e19b5b5f8dee6858a9bdc.jpg)
 
   
 ## Installation 
@@ -24,9 +27,7 @@ Clone this repo
   npx react-native run adriod
 ```
     
-## Demo
 
-Insert gif or link to demo
 
   
 ## Acknowledgements
