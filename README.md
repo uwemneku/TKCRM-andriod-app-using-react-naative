@@ -1,9 +1,7 @@
 
 # TKCRM-andriod-app-using-react-naative
+My first react native app. This project helped me learn the basics of react-native, such as navigations and how to use the basic componenets.
 
-
-
-## Badges
 
 
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
@@ -11,10 +9,9 @@
   
 ## Screenshots and Demo
 
-![App Screenshot](https://github.com/uwemneku/TKCRM-andriod-app-using-react-naative/blob/main/SampleApp/screenshot/GIF-210521_004048.gif)
-1             |  2 | 3
-:-------------------------:|:-------------------------: |:-------------------------:
-![](https://github.com/uwemneku/TKCRM-andriod-app-using-react-naative/blob/main/SampleApp/screenshot/Screenshot_2021-05-21-00-25-45-02_2014efbfc97e19b5b5f8dee6858a9bdc.jpg)  |  ![](https://github.com/uwemneku/TKCRM-andriod-app-using-react-naative/blob/main/SampleApp/screenshot/Screenshot_2021-05-21-00-26-11-14_2014efbfc97e19b5b5f8dee6858a9bdc.jpg) | ![](https://github.com/uwemneku/TKCRM-andriod-app-using-react-naative/blob/main/SampleApp/screenshot/Screenshot_2021-05-21-00-26-25-39_2014efbfc97e19b5b5f8dee6858a9bdc.jpg)
+1             |  2 | 3 | 4
+:-------------------------:|:-------------------------:|:-------------------------: |:-------------------------:
+![App Screenshot](https://github.com/uwemneku/TKCRM-andriod-app-using-react-naative/blob/main/SampleApp/screenshot/GIF-210521_004048.gif)| ![](https://github.com/uwemneku/TKCRM-andriod-app-using-react-naative/blob/main/SampleApp/screenshot/Screenshot_2021-05-21-00-25-45-02_2014efbfc97e19b5b5f8dee6858a9bdc.jpg)  |  ![](https://github.com/uwemneku/TKCRM-andriod-app-using-react-naative/blob/main/SampleApp/screenshot/Screenshot_2021-05-21-00-26-11-14_2014efbfc97e19b5b5f8dee6858a9bdc.jpg) | ![](https://github.com/uwemneku/TKCRM-andriod-app-using-react-naative/blob/main/SampleApp/screenshot/Screenshot_2021-05-21-00-26-25-39_2014efbfc97e19b5b5f8dee6858a9bdc.jpg)
 
   
 ## Installation 
@@ -38,10 +35,9 @@ Clone this repo
 
 ## Lessons Learned
 
-1. How to set up naivgations in a react native app using react native-animation
-1. How to create Pure compponenets in react and how they can be used to imporve the performance on a flatlist
-2. How to pass param from one screen to another in an app using hools from react-native-naivgations
-4. How to stop react native app from crashing when it is been resu,ed from background
+1. How to set up naivgations in a react native app using react-native-navigation
+1. How to create Pure compponenets in react and how they can be used to imporve the performance in a flatlist
+2. How to pass param from one screen to another in an app using hooks from react-native-naivgations
 
   
 ## Tech Stack
